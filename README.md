@@ -18,15 +18,19 @@ A simple and efficient task management application built with React and TypeScri
 - Material-UI (MUI)
 - date-fns for date manipulation
 - Vite for build tooling
+- Docker for containerization
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
-- npm (v6 or higher)
+- Node.js (v14 or higher) and npm (v6 or higher)
+  OR
+- Docker and Docker Compose
 
 ### Installation
+
+#### Local Development
 
 1. Clone the repository:
 ```bash
@@ -45,6 +49,38 @@ npm run dev
 ```
 
 4. Open your browser and navigate to `http://localhost:5173`
+
+#### Using Docker
+
+1. For development:
+```bash
+# Build and start the development container
+docker-compose up dev
+
+# Access the application at http://localhost:5173
+```
+
+2. For production:
+```bash
+# Build and start the production container
+docker-compose up prod
+
+# Access the application at http://localhost
+```
+
+3. To rebuild the containers:
+```bash
+# Development
+docker-compose up dev --build
+
+# Production
+docker-compose up prod --build
+```
+
+4. To stop the containers:
+```bash
+docker-compose down
+```
 
 ## Usage
 
@@ -78,6 +114,23 @@ src/
 └── App.tsx            # Root component
 ```
 
+## Docker Configuration
+
+The application includes two Docker configurations:
+
+1. **Development**:
+   - Hot-reloading enabled
+   - Volume mounting for real-time code changes
+   - Development server with debugging capabilities
+   - Exposed port: 5173
+
+2. **Production**:
+   - Multi-stage build for optimized image size
+   - Nginx server for static file serving
+   - Gzip compression enabled
+   - Security headers configured
+   - Exposed port: 80
+
 ## Assumptions
 
 1. Tasks are stored locally in the browser's localStorage
@@ -95,3 +148,7 @@ src/
 6. Implement drag-and-drop for task reordering
 7. Add task export/import functionality
 8. Implement task recurrence options
+9. Add database persistence
+10. Implement API caching
+11. Add container health checks
+12. Implement CI/CD pipeline

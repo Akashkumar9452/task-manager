@@ -43,3 +43,7 @@ dist-ssr
 # Misc
 .DS_Store
 Thumbs.db
+
+# Docker
+.docker
+docker-compose.override.yml
