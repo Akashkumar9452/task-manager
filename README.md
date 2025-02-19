@@ -55,26 +55,16 @@ npm run dev
 1. For development:
 ```bash
 # Build and start the development container
-docker-compose up dev
+docker-compose up -d
 
 # Access the application at http://localhost:5173
 ```
 
-2. For production:
-```bash
-# Build and start the production container
-docker-compose up prod
-
-# Access the application at http://localhost
-```
-
-3. To rebuild the containers:
+2. To rebuild the containers:
 ```bash
 # Development
-docker-compose up dev --build
+docker-compose up -d --build
 
-# Production
-docker-compose up prod --build
 ```
 
 4. To stop the containers:
